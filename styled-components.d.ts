@@ -5,7 +5,19 @@ type Theme = typeof defaultTheme;
 
 declare module "styled-components" {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  export interface DefaultTheme extends Theme {}
+  export interface DefaultTheme extends Theme {
+    title: string;
+    colors: {
+      primary: string;
+      secondary: string;
+      mainBg: string;
+      white: string;
+      black: string;
+      lightGray: string;
+      gray: string;
+      darkGray: string;
+    };
+  }
 
   export interface CustomTheme {
     title: string;
