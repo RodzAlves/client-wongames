@@ -1,10 +1,13 @@
-import GlobalStyles from "../src/styles/global";
+import GlobalStyles from "styles/global";
+import { ThemeProvider } from "hooks/use-theme";
 
 export const decorators = [
   (Story) => (
     <>
-      <GlobalStyles />
-      <Story />
+      <ThemeProvider>
+        <GlobalStyles />
+        <Story />
+      </ThemeProvider>
     </>
   )
 ];
