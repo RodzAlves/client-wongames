@@ -1,11 +1,11 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { renderWithTheme } from "utils/tests/helpers";
-
 import Footer from ".";
 
 describe("<Footer />", () => {
   it("should render 4 columns topics", () => {
-    renderWithTheme(<Footer />);
+    const { container } = renderWithTheme(<Footer />);
+
     expect(
       screen.getByRole("heading", { name: /contact/i })
     ).toBeInTheDocument();
@@ -16,6 +16,8 @@ describe("<Footer />", () => {
     expect(
       screen.getByRole("heading", { name: /location/i })
     ).toBeInTheDocument();
+
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it("should render copyright", () => {
