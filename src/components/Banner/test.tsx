@@ -13,7 +13,7 @@ const props = {
 
 describe("<Banner />", () => {
   it("should render correctly", () => {
-    renderWithTheme(<Banner {...props} />);
+    const { container } = renderWithTheme(<Banner {...props} />);
 
     expect(
       screen.getByRole("heading", { name: /Defy death/i })
@@ -32,5 +32,7 @@ describe("<Banner />", () => {
 
     expect(buttonLink).toBeInTheDocument();
     expect(buttonLink).toHaveAttribute("href", "/games/defy-death");
+
+    expect(container.firstChild).toMatchSnapshot();
   });
 });
